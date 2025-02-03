@@ -1,18 +1,8 @@
 import telebot
-import time
-import requests
-import ssl
+import os  # Для работы с переменными окружения
 
-# Проверка наличия модуля SSL
-try:
-    _create_unverified_https_context = ssl._create_unverified_context
-except AttributeError:
-    pass
-else:
-    ssl._create_default_https_context = _create_unverified_https_context
-
-# Данные бота
-BOT_TOKEN = "5373409081:AAEFe_FScq4B_xC56bJKAxUoDR6wuny5_KE"
+# Получаем токен бота из переменной окружения
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # Эта строка будет работать только если переменная окружения задана
 CHANNEL_ID = "-1002271884534"  # ID канала
 POST_LINK = "https://t.me/meditate_with_me/12"  # Ссылка на пост
 
